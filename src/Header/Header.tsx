@@ -121,7 +121,7 @@ const Header = () => {
               style={{
                 fontSize: "3.75rem",
                 margin: 0,
-                color: ACCENT_COLOR,
+                color: "white",
                 userSelect: "none",
               }}
             >
