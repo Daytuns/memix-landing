@@ -106,11 +106,16 @@ const Header = () => {
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "center",
-              gap: "1rem",
+              gap: "0.5rem",
               width: "100%",
             }}
           >
-            <Logo size={120} />
+            <img
+              src="/media/logos/memix.svg"
+              alt="memix logo"
+              width={120}
+              height={120}
+            />
             <h1
               style={{
                 fontSize: "3.75rem",
@@ -119,8 +124,7 @@ const Header = () => {
                 userSelect: "none",
               }}
             >
-              Project <br />
-              Share
+              memix
             </h1>
           </div>
         }
