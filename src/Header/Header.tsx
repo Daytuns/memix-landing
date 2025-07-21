@@ -29,7 +29,7 @@ const StyledHeaderWrapper = styled.div`
       #121212 0%,
       #121212 25%,
       #121212 0%,
-      rgb(230, 188, 170) 50%
+      #f05033 35%
     )
     50% center / 3px 3px;
   width: inherit;
@@ -111,7 +111,7 @@ const Header = () => {
             }}
           >
             <img
-              src="/media/logos/Group 4.svg"
+              src="/media/logos/Group 3.svg"
               alt="memix logo"
               width={120}
               height={120}
