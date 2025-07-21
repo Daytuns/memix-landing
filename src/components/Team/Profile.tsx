@@ -1,11 +1,11 @@
-import { TeamMember, SignatureStroke } from './types'
+import { TeamMember, SignatureStroke } from "./types";
 import {
   ProfileWrapper,
   ImageWrapper,
   ProfileImage,
   ProfileInfo,
   SignatureWrapper,
-} from './styles'
+} from "./styles";
 
 export const Profile = ({
   name,
@@ -17,7 +17,7 @@ export const Profile = ({
 }: TeamMember) => {
   // Convert legacy string signature to new format
   const signatureStrokes: SignatureStroke[] =
-    typeof signature === 'string' ? [{ path: signature }] : signature
+    typeof signature === "string" ? [{ path: signature }] : signature;
 
   return (
     <ProfileWrapper>
@@ -36,7 +36,8 @@ export const Profile = ({
                 key={index}
                 href={link.url}
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+              >
                 {link.label}
               </a>
             ))}
@@ -50,12 +51,12 @@ export const Profile = ({
               key={index}
               d={stroke.path}
               fill="none"
-              stroke="#7815f4"
+              stroke="#F05033"
               strokeWidth="4"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeDasharray="2000"
-              strokeDashoffset={stroke.reverse ? '2000' : '-2000'}
+              strokeDashoffset={stroke.reverse ? "2000" : "-2000"}
               style={{
                 animation: `draw ${stroke.duration || 3}s ease forwards`,
                 animationDelay: `${signatureStrokes
@@ -67,5 +68,5 @@ export const Profile = ({
         </svg>
       </SignatureWrapper>
     </ProfileWrapper>
-  )
-}
+  );
+};

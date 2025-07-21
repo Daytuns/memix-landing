@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: #7816f4;
+  color: #F05033;
   background-color: #fffefa;
 
   font-synthesis: none;
@@ -20,11 +20,11 @@
 
 a {
   font-weight: 500;
-  color: #7816f4;
+  color: #F05033;
   text-decoration: inherit;
 }
 a:hover {
-  color: #781fed;
+  color: #F07033;
 }
 
 body {
@@ -61,7 +61,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #F09033;
   }
   button {
     background-color: #f9f9f9;

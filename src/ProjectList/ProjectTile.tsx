@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import { Project, SECONDARY_COLOR } from '../constants'
-import Placeholder from '../components/Placeholder'
-import SketchLines from '../components/SketchLines'
-import { StyledLink } from '../components/StyledLink'
-import ProjectCreator from './ProjectCreator'
-import Dot from '../components/Dot'
-import { useState } from 'react'
-import Logo from '../components/Logo'
+import styled from "styled-components";
+import { Project, SECONDARY_COLOR } from "../constants";
+import Placeholder from "../components/Placeholder";
+import SketchLines from "../components/SketchLines";
+import { StyledLink } from "../components/StyledLink";
+import ProjectCreator from "./ProjectCreator";
+import Dot from "../components/Dot";
+import { useState } from "react";
+import Logo from "../components/Logo";
 
 const StyledProjectWrapper = styled.div`
   position: relative;
@@ -14,23 +14,23 @@ const StyledProjectWrapper = styled.div`
   overflow: hidden;
   box-sizing: border-box;
   background-color: #f7f6f38c;
-  border: 2px solid #6e1feb;
+  border: 2px solid #f05033;
   margin-bottom: 20px;
   padding: 10px;
-`
+`;
 
 const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 7px;
-`
+`;
 
 const ProjectId = styled.p`
   margin: 0;
   color: gray;
   user-select: none;
-`
+`;
 
 const ProjectVideoWrapper = styled.div`
   position: relative;
@@ -39,7 +39,7 @@ const ProjectVideoWrapper = styled.div`
   box-sizing: border-box;
   border: 1px solid rgb(0 0 0 / 10%);
   background-color: #f7f6f3;
-`
+`;
 
 const ProjectVideo = styled.video`
   width: 100%;
@@ -50,14 +50,14 @@ const ProjectVideo = styled.video`
   margin: 0;
   padding: 0;
   display: block;
-`
+`;
 
 const BottomBar = styled.div`
   display: grid;
   grid-template-columns: 25px 1fr;
   gap: 10px;
   padding: 10px;
-`
+`;
 
 const IconHolder = styled.div`
   width: 25px;
@@ -74,7 +74,7 @@ const IconHolder = styled.div`
     height: 100%;
     object-fit: cover;
   }
-`
+`;
 
 const ProjectTitle = styled.p<{ hasURL?: boolean }>`
   margin: 0;
@@ -87,20 +87,20 @@ const ProjectTitle = styled.p<{ hasURL?: boolean }>`
   white-space: nowrap;
 
   &:hover {
-    text-decoration: ${({ hasURL }) => (hasURL ? 'underline' : 'none')};
+    text-decoration: ${({ hasURL }) => (hasURL ? "underline" : "none")};
   }
-`
+`;
 
 const CreatorsWrapper = styled.div`
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-`
+`;
 
 const Description = styled.p`
   margin: 5px 0 0 0;
   color: ${SECONDARY_COLOR};
-`
+`;
 
 const ProjectTile = ({
   id,
@@ -111,7 +111,7 @@ const ProjectTile = ({
   media,
   icon,
 }: Project) => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   return (
     <StyledProjectWrapper key={id}>
@@ -136,11 +136,12 @@ const ProjectTile = ({
         />
         <div
           style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%,-50%)',
-          }}>
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
+          }}
+        >
           {!isVideoLoaded && <Logo size={32} animated={true} />}
         </div>
       </ProjectVideoWrapper>
@@ -151,13 +152,13 @@ const ProjectTile = ({
             {icon ? (
               <img src={icon} alt={title} draggable={false} />
             ) : (
-              <Placeholder size={'25px'} hideBorder />
+              <Placeholder size={"25px"} hideBorder />
             )}
           </IconHolder>
         </SketchLines>
 
         <div>
-          <div style={{ display: 'flex', gap: '5px' }}>
+          <div style={{ display: "flex", gap: "5px" }}>
             <a href={projectURL} target="_blank" rel="noreferrer">
               <ProjectTitle hasURL={!!projectURL}>{title}</ProjectTitle>
             </a>
@@ -176,7 +177,7 @@ const ProjectTile = ({
         </div>
       </BottomBar>
     </StyledProjectWrapper>
-  )
-}
+  );
+};
 
-export default ProjectTile
+export default ProjectTile;

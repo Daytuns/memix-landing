@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import styled from 'styled-components'
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 const Wrapper = styled(motion.div)`
   position: sticky;
@@ -12,9 +12,9 @@ const Wrapper = styled(motion.div)`
   position: absolute;
 
   transition: 0.2s box-shadow;
-  border: 5px solid #7816f4;
+  border: 5px solid #f05033;
   background: white;
-`
+`;
 
 const Navbar = ({ key }: { key: string }) => {
   return (
@@ -24,14 +24,15 @@ const Navbar = ({ key }: { key: string }) => {
       layoutId={`${key}`}
       initial={{ opacity: 0.6 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}>
+      exit={{ opacity: 0 }}
+    >
       <div>
         <motion.p initial={{ x: -10 }} animate={{ x: 0 }} exit={{ x: 100 }}>
           Next meet-up • Weds 25th Oct • AT_2.11 • 11hrs 5mins 3secs
         </motion.p>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

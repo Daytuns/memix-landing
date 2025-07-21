@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import Logo from '../components/Logo'
+import styled from "styled-components";
+import Logo from "../components/Logo";
 
 const StyledFooterWrapper = styled.div`
-  border: 5px solid #7816f4;
-  background: #7816f4;
+  border: 5px solid #f05033;
+  background: #f05033;
   width: inherit;
   margin: 3svw;
   margin-bottom: 11svh;
@@ -18,7 +18,7 @@ const StyledFooterWrapper = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
-`
+`;
 
 const Footer = () => {
   return (
@@ -28,11 +28,11 @@ const Footer = () => {
         <img
           src="media/logos/comp-soc.png"
           alt="CompSoc Logo"
-          style={{ height: '126px' }}
+          style={{ height: "126px" }}
         />
       </a>
     </StyledFooterWrapper>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

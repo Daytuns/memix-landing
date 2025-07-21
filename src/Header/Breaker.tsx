@@ -1,28 +1,29 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Container, Graphics, Text, useApp, useTick } from '@pixi/react';
-import * as PIXI from 'pixi.js';
+import React, { useState, useEffect, useCallback } from "react";
+import { Container, Graphics, Text, useApp, useTick } from "@pixi/react";
+import * as PIXI from "pixi.js";
 
 const PADDLE_WIDTH = 80;
 const PADDLE_HEIGHT = 10;
-
 
 const BALL_RADIUS = 10;
 let BALL_SPEED = 7;
 const STARTING_BALL_SPEED = 7;
 
-
 const BRICK_ROWS = 5;
 const BRICK_WIDTH = 50;
 const BRICK_PADDING = 10;
 const TOTAL_BRICK_WIDTH = BRICK_WIDTH + BRICK_PADDING;
-const BRICK_COLUMNS = Math.floor((window.innerWidth * 0.95) / TOTAL_BRICK_WIDTH);
+const BRICK_COLUMNS = Math.floor(
+  (window.innerWidth * 0.95) / TOTAL_BRICK_WIDTH
+);
 let BRICK_HEIGHT = 20;
 let BRICK_OFFSET_TOP = 40;
-const BRICK_OFFSET_LEFT = ((window.innerWidth * 0.95) - (BRICK_COLUMNS * (BRICK_WIDTH + BRICK_PADDING))) / 2;
+const BRICK_OFFSET_LEFT =
+  (window.innerWidth * 0.95 - BRICK_COLUMNS * (BRICK_WIDTH + BRICK_PADDING)) /
+  2;
 
-
-const PURPLE_COLOR = 0x6a0dad;
-const FONT_FAMILY = ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'];
+const ORANGE_COLOR = 0xf05033;
+const FONT_FAMILY = ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"];
 
 interface Brick {
   x: number;
@@ -46,21 +47,19 @@ const createBricks = () => {
   return bricks;
 };
 
-
-
-const GameOver: React.FC<GameOverProps> = ({ message,
-  app
-}) => (
+const GameOver: React.FC<GameOverProps> = ({ message, app }) => (
   <Container>
     <Text
       text={message}
-      style={new PIXI.TextStyle({
-        fill: PURPLE_COLOR,
-        fontSize: 24,
-        align: 'center',
-        fontFamily: FONT_FAMILY,
-        fontWeight: '500'
-      })}
+      style={
+        new PIXI.TextStyle({
+          fill: ORANGE_COLOR,
+          fontSize: 24,
+          align: "center",
+          fontFamily: FONT_FAMILY,
+          fontWeight: "500",
+        })
+      }
       anchor={0.5}
       x={app.screen.width / 2}
       y={window.innerHeight / 1.5}
@@ -71,14 +70,19 @@ const GameOver: React.FC<GameOverProps> = ({ message,
 const BrickBreaker: React.FC = () => {
   const app = useApp();
   const [paddlePosition, setPaddlePosition] = useState(app.screen.width / 2);
-  const [ballPosition, setBallPosition] = useState({ x: app.screen.width / 2, y: app.screen.height - 100 });
-  const [ballVelocity, setBallVelocity] = useState({ x: BALL_SPEED, y: -BALL_SPEED });
+  const [ballPosition, setBallPosition] = useState({
+    x: app.screen.width / 2,
+    y: app.screen.height - 100,
+  });
+  const [ballVelocity, setBallVelocity] = useState({
+    x: BALL_SPEED,
+    y: -BALL_SPEED,
+  });
   const [bricks, setBricks] = useState<Brick[][]>(createBricks());
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
-  const [gameState, setGameState] = useState('playing');;
+  const [gameState, setGameState] = useState("playing");
   const [playerPlaying, setPlayerPlaying] = useState(false);
-
 
   const resetGame = useCallback(() => {
     setBallPosition({ x: app.screen.width / 2, y: app.screen.height - 100 });
@@ -87,12 +91,12 @@ const BrickBreaker: React.FC = () => {
     setBricks(createBricks());
     setScore(0);
     setLives(3);
-    setGameState('playing');
+    setGameState("playing");
   }, [app.screen.width, app.screen.height]);
 
   useEffect(() => {
     let timeoutId: string | number | NodeJS.Timeout | undefined;
-    if (gameState === 'gameOver' || gameState === 'victory') {
+    if (gameState === "gameOver" || gameState === "victory") {
       timeoutId = setTimeout(() => {
         resetGame();
       }, 3000);
@@ -101,11 +105,15 @@ const BrickBreaker: React.FC = () => {
   }, [gameState, resetGame]);
 
   useEffect(() => {
-
     const movePaddle = (e: MouseEvent) => {
       let relativeX = e.clientX - (app.view as HTMLCanvasElement).offsetLeft;
       let relativeY = e.clientY - (app.view as HTMLCanvasElement).offsetTop;
-      if (relativeX > 0 && relativeX < app.screen.width && relativeY > 0 && relativeY < app.screen.height) {
+      if (
+        relativeX > 0 &&
+        relativeX < app.screen.width &&
+        relativeY > 0 &&
+        relativeY < app.screen.height
+      ) {
         setPaddlePosition(relativeX);
         setPlayerPlaying(true);
       } else {
@@ -115,35 +123,38 @@ const BrickBreaker: React.FC = () => {
 
     const movePaddleWithTouch = (e: TouchEvent) => {
       if (e.touches.length > 0) {
-        let relativeX = e.touches[0].clientX - (app.view as HTMLCanvasElement).offsetLeft;
+        let relativeX =
+          e.touches[0].clientX - (app.view as HTMLCanvasElement).offsetLeft;
         if (relativeX > 0 && relativeX < app.screen.width) {
           setPaddlePosition(relativeX);
         }
       }
     };
 
-    window.addEventListener('mousemove', movePaddle);
-    window.addEventListener('touchmove', movePaddleWithTouch, { passive: false });
+    window.addEventListener("mousemove", movePaddle);
+    window.addEventListener("touchmove", movePaddleWithTouch, {
+      passive: false,
+    });
 
     return () => {
-      window.removeEventListener('mousemove', movePaddle);
-      window.removeEventListener('touchmove', movePaddleWithTouch);
+      window.removeEventListener("mousemove", movePaddle);
+      window.removeEventListener("touchmove", movePaddleWithTouch);
     };
   }, [app.screen.width, app.view]);
 
-
-
   useTick((delta) => {
-    if (gameState !== 'playing') return;
-    if (!playerPlaying && gameState === 'playing') {
+    if (gameState !== "playing") return;
+    if (!playerPlaying && gameState === "playing") {
       const aiPaddleSpeed = BALL_SPEED;
       if (ballPosition.x < paddlePosition - PADDLE_WIDTH / 2 + aiPaddleSpeed) {
         setPaddlePosition(paddlePosition - aiPaddleSpeed);
-      } else if (ballPosition.x > paddlePosition + PADDLE_WIDTH / 2 - aiPaddleSpeed) {
+      } else if (
+        ballPosition.x >
+        paddlePosition + PADDLE_WIDTH / 2 - aiPaddleSpeed
+      ) {
         setPaddlePosition(paddlePosition + aiPaddleSpeed);
       }
     }
-
 
     let newPos = {
       x: ballPosition.x + ballVelocity.x * delta,
@@ -158,18 +169,28 @@ const BrickBreaker: React.FC = () => {
     // Top wall collision and paddle collision
     if (newPos.y <= BALL_RADIUS) {
       setBallVelocity((v) => ({ x: v.x, y: -v.y }));
-    } else if (newPos.y >= app.screen.height - PADDLE_HEIGHT - BALL_RADIUS && newPos.x > paddlePosition - PADDLE_WIDTH / 2 && newPos.x < paddlePosition + PADDLE_WIDTH / 2) {
+    } else if (
+      newPos.y >= app.screen.height - PADDLE_HEIGHT - BALL_RADIUS &&
+      newPos.x > paddlePosition - PADDLE_WIDTH / 2 &&
+      newPos.x < paddlePosition + PADDLE_WIDTH / 2
+    ) {
       let hitPosition = newPos.x - paddlePosition;
       let normalizedHitPosition = hitPosition / (PADDLE_WIDTH / 2);
       let angle = normalizedHitPosition * (Math.PI / 3);
-      setBallVelocity({ x: BALL_SPEED * Math.sin(angle), y: -BALL_SPEED * Math.cos(angle) });
+      setBallVelocity({
+        x: BALL_SPEED * Math.sin(angle),
+        y: -BALL_SPEED * Math.cos(angle),
+      });
     } else if (newPos.y > app.screen.height - BALL_RADIUS) {
       // Ball missed the paddle
       setLives(lives - 1);
       if (lives - 1 <= 0) {
-        setGameState('gameOver');
+        setGameState("gameOver");
       } else {
-        setBallPosition({ x: app.screen.width / 2, y: app.screen.height - 100 });
+        setBallPosition({
+          x: app.screen.width / 2,
+          y: app.screen.height - 100,
+        });
         setBallVelocity({ x: BALL_SPEED, y: -BALL_SPEED });
         setPaddlePosition(app.screen.width / 2);
       }
@@ -202,7 +223,7 @@ const BrickBreaker: React.FC = () => {
     }
 
     if (score === BRICK_ROWS * BRICK_COLUMNS) {
-      setGameState('victory');
+      setGameState("victory");
     }
 
     setBallPosition(newPos);
@@ -210,12 +231,12 @@ const BrickBreaker: React.FC = () => {
 
   return (
     <Container>
-      {gameState === 'playing' && (
+      {gameState === "playing" && (
         <>
           <Graphics
             draw={(g) => {
               g.clear();
-              g.beginFill(PURPLE_COLOR); // Purple color
+              g.beginFill(ORANGE_COLOR); // Orange color
               g.drawRect(-PADDLE_WIDTH / 2, 0, PADDLE_WIDTH, PADDLE_HEIGHT);
               g.endFill();
             }}
@@ -225,7 +246,7 @@ const BrickBreaker: React.FC = () => {
           <Graphics
             draw={(g) => {
               g.clear();
-              g.beginFill(PURPLE_COLOR); // Purple color
+              g.beginFill(ORANGE_COLOR); // Orange color
               g.drawCircle(0, 0, BALL_RADIUS);
               g.endFill();
             }}
@@ -235,8 +256,10 @@ const BrickBreaker: React.FC = () => {
           {bricks.map((column, cIndex) =>
             column.map((brick, rIndex) => {
               if (brick.status === 1) {
-                let brickX = cIndex * (BRICK_WIDTH + BRICK_PADDING) + BRICK_OFFSET_LEFT;
-                let brickY = rIndex * (BRICK_HEIGHT + BRICK_PADDING) + BRICK_OFFSET_TOP;
+                let brickX =
+                  cIndex * (BRICK_WIDTH + BRICK_PADDING) + BRICK_OFFSET_LEFT;
+                let brickY =
+                  rIndex * (BRICK_HEIGHT + BRICK_PADDING) + BRICK_OFFSET_TOP;
                 bricks[cIndex][rIndex].x = brickX;
                 bricks[cIndex][rIndex].y = brickY;
                 return (
@@ -244,7 +267,7 @@ const BrickBreaker: React.FC = () => {
                     key={`${cIndex}-${rIndex}`}
                     draw={(g) => {
                       g.clear();
-                      g.beginFill(PURPLE_COLOR); // Purple color
+                      g.beginFill(ORANGE_COLOR); // Orange color
                       g.drawRect(0, 0, BRICK_WIDTH, BRICK_HEIGHT);
                       g.endFill();
                     }}
@@ -256,13 +279,45 @@ const BrickBreaker: React.FC = () => {
               return null;
             })
           )}
-          <Text text={`Score: ${score}`} style={new PIXI.TextStyle({ fill: PURPLE_COLOR, fontSize: 18, fontFamily: FONT_FAMILY, fontWeight: '500' })} x={10} y={10} />
-          <Text text={`Lives: ${lives}`} style={new PIXI.TextStyle({ fill: PURPLE_COLOR, fontSize: 18, fontFamily: FONT_FAMILY, fontWeight: '500' })} x={app.screen.width - 80} y={10} />
+          <Text
+            text={`Score: ${score}`}
+            style={
+              new PIXI.TextStyle({
+                fill: ORANGE_COLOR,
+                fontSize: 18,
+                fontFamily: FONT_FAMILY,
+                fontWeight: "500",
+              })
+            }
+            x={10}
+            y={10}
+          />
+          <Text
+            text={`Lives: ${lives}`}
+            style={
+              new PIXI.TextStyle({
+                fill: ORANGE_COLOR,
+                fontSize: 18,
+                fontFamily: FONT_FAMILY,
+                fontWeight: "500",
+              })
+            }
+            x={app.screen.width - 80}
+            y={10}
+          />
         </>
       )}
-      {(gameState === 'gameOver' || gameState === 'victory' || gameState === 'start') && (
+      {(gameState === "gameOver" ||
+        gameState === "victory" ||
+        gameState === "start") && (
         <GameOver
-          message={gameState === 'start' ? "" : (gameState === 'gameOver' ? "Game Over" : "Victory!")}
+          message={
+            gameState === "start"
+              ? ""
+              : gameState === "gameOver"
+              ? "Game Over"
+              : "Victory!"
+          }
           app={app}
         />
       )}

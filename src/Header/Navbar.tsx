@@ -1,12 +1,12 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect, useRef } from 'react'
-import { styled } from 'styled-components'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { DISCORD_INVITE_LINK } from '../constants'
-import WavyText from '../components/WavyText'
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { styled } from "styled-components";
+import { useLocation, useNavigate } from "react-router-dom";
+import { DISCORD_INVITE_LINK } from "../constants";
+import WavyText from "../components/WavyText";
 
 const StyledNavbar = styled.div`
-  border: 5px solid #7816f4;
+  border: 5px solid #f05033;
   outline: 2px solid white;
   background: white;
   height: 50px;
@@ -23,7 +23,7 @@ const StyledNavbar = styled.div`
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-`
+`;
 const Background = styled(motion.div)`
   position: absolute;
   background-color: #efe2f5; // Or any color you prefer
@@ -31,7 +31,7 @@ const Background = styled(motion.div)`
   z-index: -1; // Higher than other elements
   pointer-events: none; // Allow clicks to pass through
   transition: all 0.3s ease;
-`
+`;
 
 const NavbarItem = styled.b`
   cursor: pointer;
@@ -44,16 +44,16 @@ const NavbarItem = styled.b`
   &:hover {
     color: black;
   }
-`
+`;
 
 const navBarRoutes = [
   {
-    name: 'Home',
-    path: '/',
+    name: "Home",
+    path: "/",
   },
-  { name: 'Team', path: '/team' },
-  { name: 'About', path: '/about' },
-]
+  { name: "Team", path: "/team" },
+  { name: "About", path: "/about" },
+];
 
 const HoverBackground = ({ hoveredItem }: { hoveredItem: HTMLDivElement }) => {
   return (
@@ -80,34 +80,34 @@ const HoverBackground = ({ hoveredItem }: { hoveredItem: HTMLDivElement }) => {
         scale: 0.6,
       }}
     />
-  )
-}
+  );
+};
 
 const Navbar = () => {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const [hoveredItem, setHoveredItem] = useState<HTMLDivElement | null>(null)
-  const navbarRef = useRef<HTMLDivElement>(null)
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [hoveredItem, setHoveredItem] = useState<HTMLDivElement | null>(null);
+  const navbarRef = useRef<HTMLDivElement>(null);
 
   const setHoveredItemToDefault = () => {
     if (navbarRef.current) {
       const defaultItem = Array.from(navbarRef.current.children).find(
         (child) =>
-          (child as HTMLDivElement).getAttribute('href') ===
+          (child as HTMLDivElement).getAttribute("href") ===
             location.pathname ||
           child.textContent ===
             navBarRoutes.find((route) => route.path === location.pathname)?.name
-      ) as HTMLDivElement | undefined
+      ) as HTMLDivElement | undefined;
 
       if (defaultItem) {
-        setHoveredItem(defaultItem)
+        setHoveredItem(defaultItem);
       }
     }
-  }
+  };
 
   useEffect(() => {
-    setHoveredItemToDefault()
-  }, [location.pathname])
+    setHoveredItemToDefault();
+  }, [location.pathname]);
 
   return (
     <StyledNavbar ref={navbarRef}>
@@ -122,7 +122,8 @@ const Navbar = () => {
           onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) =>
             setHoveredItem(e.currentTarget)
           }
-          onMouseLeave={() => setHoveredItemToDefault()}>
+          onMouseLeave={() => setHoveredItemToDefault()}
+        >
           {route.name}
         </NavbarItem>
       ))}
@@ -130,11 +131,12 @@ const Navbar = () => {
         as="a"
         href={DISCORD_INVITE_LINK}
         onMouseEnter={(e: any) => setHoveredItem(e.currentTarget)}
-        onMouseLeave={() => setHoveredItemToDefault()}>
+        onMouseLeave={() => setHoveredItemToDefault()}
+      >
         <WavyText text="Discord" />
       </NavbarItem>
     </StyledNavbar>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

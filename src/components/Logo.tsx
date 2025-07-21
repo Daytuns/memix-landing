@@ -1,10 +1,10 @@
-import { FC } from 'react'
-import styled, { css, keyframes } from 'styled-components'
+import { FC } from "react";
+import styled, { css, keyframes } from "styled-components";
 
 interface LogoProps {
-  size?: number
-  animated?: boolean
-  color?: string
+  size?: number;
+  animated?: boolean;
+  color?: string;
 }
 
 const rotateAnimation = keyframes`
@@ -23,7 +23,7 @@ const rotateAnimation = keyframes`
   100% {
     transform: rotate(360deg);
   }
-`
+`;
 const Rotate = styled.g<{ animated: boolean }>`
   transform-origin: 50% 50%;
   animation: ${({ animated }) =>
@@ -31,14 +31,14 @@ const Rotate = styled.g<{ animated: boolean }>`
       ? css`
           ${rotateAnimation} 3s infinite cubic-bezier(0.680, -0.550, 0.265, 1.550)
         `
-      : 'none'};
+      : "none"};
   animation-fill-mode: backwards;
-`
+`;
 
 const Logo: FC<LogoProps> = ({
   size = 126,
   animated = false,
-  color = '#7816F4',
+  color = "#F05033",
 }) => {
   return (
     <svg
@@ -46,7 +46,8 @@ const Logo: FC<LogoProps> = ({
       height={size}
       viewBox="-1 -1 105 105"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <g clip-path="url(#clip0_69_284)">
         <Rotate animated={animated}>
           <path
@@ -79,7 +80,7 @@ const Logo: FC<LogoProps> = ({
         />
       </g>
     </svg>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;
