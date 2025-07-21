@@ -1,10 +1,14 @@
-import styled from 'styled-components'
-import { DISCORD_INVITE_LINK, NEXT_MEETUP, SECONDARY_COLOR } from '../constants'
-import Dot from '../components/Dot'
-import BouncingEllipsis from '../components/BouncingEllipsis'
-import { useEffect, useState } from 'react'
-import NumberFlipper from './NumberFlipper'
-import WavyText from '../components/WavyText'
+import styled from "styled-components";
+import {
+  DISCORD_INVITE_LINK,
+  NEXT_MEETUP,
+  SECONDARY_COLOR,
+} from "../constants";
+import Dot from "../components/Dot";
+import BouncingEllipsis from "../components/BouncingEllipsis";
+import { useEffect, useState } from "react";
+import NumberFlipper from "./NumberFlipper";
+import WavyText from "../components/WavyText";
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -12,101 +16,111 @@ const StyledWrapper = styled.div`
   color: ${SECONDARY_COLOR};
 
   height: 100%;
-`
+`;
 
 const StyledTitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
   margin: 0;
   user-select: none;
-`
+`;
 
 const StyledDetail = styled.p`
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-`
+  color: white;
+`;
+
+const TerminalCommand = styled.span`
+  font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+  color: #f05033;
+  font-size: 1.15em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+`;
 
 const NextMeetingIsTBC = () => (
   <StyledWrapper>
     <StyledTitle>
-      Next meet-up
-      <BouncingEllipsis />
+      <TerminalCommand>npm install -g memix</TerminalCommand>
+      {/* <BouncingEllipsis /> */}
     </StyledTitle>
-    <StyledDetail>
-      TBC
-      <Dot />
-      Check <a href={DISCORD_INVITE_LINK}>Discord</a> soon!
-    </StyledDetail>
+    <StyledDetail>by daytunss</StyledDetail>
   </StyledWrapper>
-)
+);
 
 const NextMeeting = () => {
-  const [timeLeft, setTimeLeft] = useState<number | null>(null)
+  const [timeLeft, setTimeLeft] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!NEXT_MEETUP) return
+    if (!NEXT_MEETUP) return;
 
     const updateTimeLeft = () => {
-      if (!NEXT_MEETUP) return
-      const timeDiff = NEXT_MEETUP.date.getTime() - new Date().getTime()
-      setTimeLeft(timeDiff > 0 ? timeDiff : null)
-    }
+      if (!NEXT_MEETUP) return;
+      const timeDiff = NEXT_MEETUP.date.getTime() - new Date().getTime();
+      setTimeLeft(timeDiff > 0 ? timeDiff : null);
+    };
 
-    const interval = setInterval(updateTimeLeft, 100)
-    updateTimeLeft()
+    const interval = setInterval(updateTimeLeft, 100);
+    updateTimeLeft();
 
-    return () => clearInterval(interval)
-  }, [NEXT_MEETUP])
+    return () => clearInterval(interval);
+  }, [NEXT_MEETUP]);
 
-  if (!NEXT_MEETUP || timeLeft === null) return <NextMeetingIsTBC />
+  if (!NEXT_MEETUP || timeLeft === null) return <NextMeetingIsTBC />;
 
-  const hours = Math.floor(timeLeft / (1000 * 60 * 60))
-  const minutes = Math.floor((timeLeft / (1000 * 60)) % 60)
-  const seconds = Math.floor((timeLeft / 1000) % 60)
+  const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+  const seconds = Math.floor((timeLeft / 1000) % 60);
 
   return (
     <StyledWrapper>
       <StyledDetail>
         <div
           style={{
-            fontSize: '1.5rem',
+            fontSize: "1.5rem",
             margin: 0,
             lineHeight: 1.4,
-            userSelect: 'none',
-            textAlign: 'right',
-            display: 'flex',
-            flexDirection: 'column',
-          }}>
+            userSelect: "none",
+            textAlign: "right",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <WavyText text="Next" />
           <WavyText text="meet-up" />
         </div>
         <div
           style={{
-            display: 'flex',
-            alignItems: 'left',
-            flexDirection: 'column',
-          }}>
+            display: "flex",
+            alignItems: "left",
+            flexDirection: "column",
+          }}
+        >
           <span>{NEXT_MEETUP.location}</span>
           <span>
-            {NEXT_MEETUP.date.toLocaleDateString('en-GB', {
-              hour: '2-digit',
-              minute: '2-digit',
-              weekday: 'short',
-              month: 'short',
-              day: 'numeric',
+            {NEXT_MEETUP.date.toLocaleDateString("en-GB", {
+              hour: "2-digit",
+              minute: "2-digit",
+              weekday: "short",
+              month: "short",
+              day: "numeric",
             })}
           </span>
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5ch',
-            }}>
-            <NumberFlipper value={hours} precision={hours.toString().length} />{' '}
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5ch",
+            }}
+          >
+            <NumberFlipper value={hours} precision={hours.toString().length} />{" "}
             hrs
             <NumberFlipper value={minutes} precision={2} /> min
             <NumberFlipper value={seconds} precision={2} /> sec
@@ -114,7 +128,7 @@ const NextMeeting = () => {
         </div>
       </StyledDetail>
     </StyledWrapper>
-  )
-}
+  );
+};
 
-export default NextMeeting
+export default NextMeeting;

@@ -26,10 +26,10 @@ const StyledStage = styled(Stage)`
 const StyledHeaderWrapper = styled.div`
   outline: 5px solid #f05033;
   background: repeating-conic-gradient(
-      rgb(254, 248, 246) 0%,
-      rgb(254, 249, 246) 25%,
-      rgb(247, 235, 225) 0%,
-      rgb(230, 203, 191) 50%
+      #121212 0%,
+      #121212 25%,
+      #121212 0%,
+      rgb(230, 188, 170) 50%
     )
     50% center / 3px 3px;
   width: inherit;
@@ -106,15 +106,16 @@ const Header = () => {
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "center",
-              gap: "0.5rem",
+              gap: "1rem",
               width: "100%",
             }}
           >
             <img
-              src="/media/logos/memix.svg"
+              src="/media/logos/Group 4.svg"
               alt="memix logo"
               width={120}
               height={120}
+              // style={{ border: "5px solid #f05033" }}
             />
             <h1
               style={{
@@ -124,7 +125,7 @@ const Header = () => {
                 userSelect: "none",
               }}
             >
-              memix
+              memix <br /> docs
             </h1>
           </div>
         }
@@ -139,13 +140,13 @@ const Header = () => {
         }
       />
 
-      <StyledStage
+      {/* <StyledStage
         width={stageWidth}
         height={stageHeight}
         options={{ backgroundAlpha: 0 }}
       >
         {possibleStageBackgrounds[currentStageIndex].stage}
-      </StyledStage>
+      </StyledStage> */}
       <div>
         <div
           style={{

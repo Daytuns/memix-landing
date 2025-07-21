@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import Logo from '../components/Logo'
+import styled from "styled-components";
+import Logo from "../components/Logo";
 
 const Background = styled.div`
   background-color: #f3f3f3;
@@ -9,7 +9,7 @@ const Background = styled.div`
   @media (max-width: 768px) {
     padding: 16px;
   }
-`
+`;
 
 const Page = styled.div`
   padding: 2rem;
@@ -25,26 +25,27 @@ const Page = styled.div`
     padding: 24px;
   }
   margin-bottom: 4rem;
-`
+`;
 
 const About = () => {
-  const user = 'partners'
-  const domain = 'comp-soc'
-  const tld = 'com'
+  const user = "partners";
+  const domain = "comp-soc";
+  const tld = "com";
 
-  const contactEmail = `${user}@${domain}.${tld}`
+  const contactEmail = `${user}@${domain}.${tld}`;
 
   return (
     <Background>
       <Page>
         <div
           style={{
-            display: 'flex',
-            gap: '1rem',
-            flexDirection: 'row',
-            marginBottom: '2rem',
-            justifyContent: 'space-between',
-          }}>
+            display: "flex",
+            gap: "1rem",
+            flexDirection: "row",
+            marginBottom: "2rem",
+            justifyContent: "space-between",
+          }}
+        >
           <Logo size={64} />
 
           {new Date().getFullYear()}
@@ -107,19 +108,20 @@ const About = () => {
         </p>
         <p>
           If you are interested in sponsoring Project Share, please contact us
-          at through our parent society CompSoc at{' '}
+          at through our parent society CompSoc at{" "}
           <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
         </p>
         <h3>Contact</h3>
         <a
           href="https://forms.gle/bCuHdZdJ1bXEsmnP7"
           target="_blank"
-          rel="noreferrer">
+          rel="noreferrer"
+        >
           Feedback Form
         </a>
       </Page>
     </Background>
-  )
-}
+  );
+};
 
-export default About
+export default About;

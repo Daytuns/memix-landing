@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const StyledLink = styled.div`
   border-radius: 7px;
@@ -16,4 +16,4 @@ export const StyledLink = styled.div`
     border: 1px solid gray;
     color: black;
   }
-`
+`;

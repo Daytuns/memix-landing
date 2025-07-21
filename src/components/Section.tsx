@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const StyledMain = styled.div`
   position: relative;
@@ -7,7 +7,7 @@ const StyledMain = styled.div`
   padding: 1rem;
 
   max-width: 858px;
-`
+`;
 
 const StyledRotatedText = styled.p`
   position: absolute;
@@ -23,22 +23,22 @@ const StyledRotatedText = styled.p`
     margin-bottom: 0;
     left: 0;
   }
-`
+`;
 
 const Section = ({
   children,
   title,
   ...props
 }: {
-  children: React.ReactNode
-  title?: string
+  children: React.ReactNode;
+  title?: string;
 }) => {
   return (
     <StyledMain {...props}>
       <StyledRotatedText>{title}</StyledRotatedText>
       {children}
     </StyledMain>
-  )
-}
+  );
+};
 
-export default Section
+export default Section;

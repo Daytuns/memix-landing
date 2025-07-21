@@ -31,7 +31,7 @@ const CardSide = styled(motion.div)<{ isHovered: boolean }>`
       : "0px 4px 8px 0px rgba(0,0,0,0.2)"};
   transition: 0.2s box-shadow;
   outline: 5px solid #f05033;
-  background: white;
+  background: #121212;
   cursor: pointer;
 
   padding: 1rem;
@@ -46,9 +46,9 @@ const Long = styled(motion.div)`
   align-items: center;
   transition: 0.2s box-shadow;
   border: 5px solid #f05033;
-  outline: 2px solid white;
+  outline: 2px solid #121212;
 
-  background: white;
+  background: #121212;
   overflow: hidden;
   padding: 0.75rem 1.5rem 0.75rem 1.5rem;
   position: fixed;
