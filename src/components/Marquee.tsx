@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion, useSpring, useViewportScroll } from "framer-motion";
-import { ACCENT_COLOR, DISCORD_INVITE_LINK } from "../constants";
+import { ACCENT_COLOR } from "../constants";
 import { useEffect } from "react";
 
 const MarqueeContainer = styled.div`

@@ -2,12 +2,8 @@ import styled from "styled-components";
 import FlippableCard from "../components/FlippableCard";
 import NextMeeting from "../NextMeetup/NextMeetup";
 import { Stage } from "@pixi/react";
-import Gravity from "./Gravity";
 import { ACCENT_COLOR } from "../constants";
 import { useEffect, useRef, useState } from "react";
-import Boids from "./Boids";
-import BrickBreaker from "./Breaker";
-import DVDBounce from "./DVDBounce";
 
 const StyledStage = styled(Stage)`
   position: absolute;
@@ -151,58 +147,6 @@ DDDDDDDDDDDDD          aaaaaaaaaa  aaaa       y:::::y                     tttttt
           </div>
         }
       />
-
-      {/* <StyledStage
-        width={stageWidth}
-        height={stageHeight}
-        options={{ backgroundAlpha: 0 }}
-      >
-        {possibleStageBackgrounds[currentStageIndex].stage}
-      </StyledStage> */}
-      {/* <div>
-        <div
-          style={{
-            position: "absolute",
-            bottom: "1rem",
-            right: "1rem",
-            display: "flex",
-            flexDirection: "row",
-            gap: "0.5rem",
-            alignContent: "center",
-          }}
-        >
-          <a
-            href={possibleStageBackgrounds[currentStageIndex].url}
-            style={{
-              color: ACCENT_COLOR,
-              textDecoration: "none",
-              userSelect: "none",
-              background: "rgba(255, 255, 255, 0.7)",
-              padding: "0rem 0.5rem",
-              fontSize: "0.75rem",
-              borderRadius: "5rem",
-              backdropFilter: "blur(5px)",
-            }}
-          >
-            interaction by {possibleStageBackgrounds[currentStageIndex].creator}
-          </a>
-          <button
-            style={{
-              color: ACCENT_COLOR,
-              textDecoration: "none",
-              userSelect: "none",
-              background: "rgba(255, 255, 255, 0.7)",
-              padding: "0rem 0.5rem",
-              fontSize: "0.75rem",
-              borderRadius: "5rem",
-              backdropFilter: "blur(5px)",
-            }}
-            onClick={() => nextStage()}
-          >
-            ↻
-          </button>
-        </div>
-      </div> */}
     </StyledHeaderWrapper>
   );
 };
