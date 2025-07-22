@@ -19,7 +19,7 @@ const TextContainer = styled.span`
 
 const StaticText = styled(motion.span)`
   transition: 0.2s;
-  color: #f05033;
+  color: white;
 `;
 
 interface ContentLineProps {

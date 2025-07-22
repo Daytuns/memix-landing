@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom'
-import ProjectList from '../ProjectList/ProjectList'
-import { PROJECTS, PROJECTS_SHOWN_ON_HOMEPAGE } from '../constants'
-import { StyledLink } from '../components/StyledLink'
-import Footer from '../Footer/Footer'
-import Header from '../Header/Header'
-import Marquee from '../components/Marquee'
-import ScrollText from '../components/ScrollText'
-import Section from '../components/Section'
+import { Link } from "react-router-dom";
+import ProjectList from "../ProjectList/ProjectList";
+import { PROJECTS, PROJECTS_SHOWN_ON_HOMEPAGE } from "../constants";
+import { StyledLink } from "../components/StyledLink";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import Marquee from "../components/Marquee";
+import ScrollText from "../components/ScrollText";
+import Section from "../components/Section";
 
 const Home = () => {
   return (
@@ -19,37 +19,45 @@ const Home = () => {
       <Section title="Intro">
         <ScrollText
           content={[
-            'At Project Share we meet every other week',
-            'and share updates on our own tech projects.',
-            'Show and tell!',
-            'Hear the development of other builders and learn from them',
+            "memix is an AI-powered command-line tool",
+            "that automatically generates clean, conventional git commit messages",
+            "based on your staged changes.",
           ]}
         />
         <br />
         <br />
         <br />
-        <ScrollText content={['Welcome!']} />
+        <ScrollText
+          content={[
+            "This is just the beginning,",
+            "memix is my personal toolbox in progress.",
+            "I plan to keep building it out with simple, effective CLI tools for everyday dev annoyances",
+          ]}
+        />
       </Section>
 
       <div
         style={{
-          position: 'relative',
-          margin: '5rem',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+          position: "relative",
+          margin: "5rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div
           style={{
-            transform: 'rotate(-7deg)',
-          }}>
+            transform: "rotate(-7deg)",
+          }}
+        >
           <Marquee />
         </div>
         <div
           style={{
-            transform: 'rotate(5deg) translateY(-50px)',
-          }}>
+            transform: "rotate(5deg) translateY(-50px)",
+          }}
+        >
           <Marquee />
         </div>
       </div>
@@ -59,10 +67,11 @@ const Home = () => {
         {PROJECTS.length > PROJECTS_SHOWN_ON_HOMEPAGE && (
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              padding: '0.5rem 0 2rem 0',
-            }}>
+              display: "flex",
+              justifyContent: "center",
+              padding: "0.5rem 0 2rem 0",
+            }}
+          >
             <StyledLink as={Link} to="/projects">
               See more
             </StyledLink>
@@ -72,7 +81,7 @@ const Home = () => {
 
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

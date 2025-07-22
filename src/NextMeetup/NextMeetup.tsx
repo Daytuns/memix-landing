@@ -27,7 +27,7 @@ const StyledTitle = styled.h2`
 
 const StyledDetail = styled.p`
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
   display: flex;
   align-items: center;

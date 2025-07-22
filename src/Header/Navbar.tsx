@@ -51,7 +51,7 @@ const navBarRoutes = [
     name: "Home",
     path: "/",
   },
-  { name: "About", path: "/about" },
+  { name: "Setup", path: "/about" },
   { name: "npm", path: "/team" },
 ];
 

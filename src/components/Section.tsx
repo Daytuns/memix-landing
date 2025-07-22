@@ -14,6 +14,7 @@ const StyledRotatedText = styled.p`
   transform-origin: top left;
   transform: rotate(90deg);
   left: 10px;
+  color: #f05033;
   font-size: 2rem;
   margin-bottom: 2rem;
 

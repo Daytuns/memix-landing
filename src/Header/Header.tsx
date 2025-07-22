@@ -32,7 +32,7 @@ const ASCIIBackground = styled.pre`
   font-size: 0.7rem;
   font-weight: bolder;
   color: white;
-  opacity: 0.4;
+  opacity: 0.5;
   margin: 0;
   z-index: 0;
   pointer-events: none;
