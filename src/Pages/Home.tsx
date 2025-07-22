@@ -51,14 +51,20 @@ const Home = () => {
             transform: "rotate(-7deg)",
           }}
         >
-          <Marquee />
+          <Marquee
+            bannerName="Github Repo"
+            bannerLink="https://github.com/Daytuns/memix"
+          />
         </div>
         <div
           style={{
             transform: "rotate(5deg) translateY(-50px)",
           }}
         >
-          <Marquee />
+          <Marquee
+            bannerName="Package"
+            bannerLink="https://www.npmjs.com/package/memix"
+          />
         </div>
       </div>
 

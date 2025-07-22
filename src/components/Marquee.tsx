@@ -56,7 +56,12 @@ const Title = styled.h1`
   font-size: 32px;
 `;
 
-const Marquee = () => {
+interface Banner {
+  bannerName: string;
+  bannerLink: string;
+}
+
+const Marquee = ({ bannerName, bannerLink }: Banner) => {
   const direction = Math.random() > 0.5 ? 1 : -1;
 
   const { scrollYProgress } = useViewportScroll();
@@ -75,14 +80,14 @@ const Marquee = () => {
   return (
     <MarqueeContainer>
       <Track
-        href={DISCORD_INVITE_LINK}
+        href={bannerLink}
         target="_blank"
         // ref={trackRef}
         style={{ x: marqueeX }}
       >
         {Array.from({ length: 50 }).map(() => (
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <Title>Join Discord</Title>
+            <Title>{bannerName}</Title>
             <svg
               width="24"
               height="24"
