@@ -51,7 +51,7 @@ const navBarRoutes = [
     name: "Home",
     path: "/",
   },
-  { name: "Setup", path: "/about" },
+  { name: "Setup", path: "/setup" },
   { name: "npm", path: "/team" },
 ];
 
@@ -129,7 +129,8 @@ const Navbar = () => {
       ))}
       <NavbarItem
         as="a"
-        href={DISCORD_INVITE_LINK}
+        href="https://github.com/Daytuns/memix"
+        target="_blank"
         onMouseEnter={(e: any) => setHoveredItem(e.currentTarget)}
         onMouseLeave={() => setHoveredItemToDefault()}
       >
