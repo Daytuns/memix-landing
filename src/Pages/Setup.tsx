@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StyledLink } from "../components/StyledLink";
+import memixLogo from "/media/logos/Group 3.svg";
 
 const Background = styled.div`
   background-color: #f3f3f3;
@@ -58,7 +59,7 @@ const Setup = () => {
           }}
         >
           <img
-            src="/media/logos/Group 3.svg"
+            src={memixLogo}
             alt="memix logo"
             width={64}
             height={64}

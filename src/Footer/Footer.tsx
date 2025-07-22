@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import memixWhiteLogo from "/media/logos/memix_white.svg";
 
 const StyledFooterWrapper = styled.div`
   border: 5px solid #f05033;
@@ -38,12 +39,7 @@ const Footer = () => {
   return (
     <StyledFooterWrapper>
       <LogoContainer>
-        <img
-          src="/media/logos/memix_white.svg"
-          alt="memix logo"
-          width={126}
-          height={126}
-        />
+        <img src={memixWhiteLogo} alt="memix logo" width={126} height={126} />
       </LogoContainer>
       <Attribution>
         Components adapted from Project Share with modifications for styling and

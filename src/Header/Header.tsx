@@ -4,6 +4,7 @@ import NextMeeting from "../NextMeetup/NextMeetup";
 // import { Stage } from "@pixi/react";
 // import { ACCENT_COLOR } from "../constants";
 import { useRef } from "react";
+import memixLogo from "/media/logos/Group 3.svg";
 // import { useEffect, useRef, useState } from "react";
 
 // const StyledStage = styled(Stage)`
@@ -120,7 +121,7 @@ DDDDDDDDDDDDD          aaaaaaaaaa  aaaa       y:::::y                     tttttt
             }}
           >
             <img
-              src="/media/logos/Group 3.svg"
+              src={memixLogo}
               alt="memix logo"
               width={120}
               height={120}
