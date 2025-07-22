@@ -52,7 +52,7 @@ const navBarRoutes = [
     path: "/",
   },
   { name: "Setup", path: "/setup" },
-  { name: "npm", path: "/team" },
+  // { name: "npm", path: "/team" },
 ];
 
 const HoverBackground = ({ hoveredItem }: { hoveredItem: HTMLDivElement }) => {
@@ -127,6 +127,15 @@ const Navbar = () => {
           {route.name}
         </NavbarItem>
       ))}
+      <NavbarItem
+        as="a"
+        href="https://www.npmjs.com/package/memix"
+        target="_blank"
+        onMouseEnter={(e: any) => setHoveredItem(e.currentTarget)}
+        onMouseLeave={() => setHoveredItemToDefault()}
+      >
+        <WavyText text="npm" />
+      </NavbarItem>
       <NavbarItem
         as="a"
         href="https://github.com/Daytuns/memix"
