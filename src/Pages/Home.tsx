@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import ProjectList from "../ProjectList/ProjectList";
 import { PROJECTS, PROJECTS_SHOWN_ON_HOMEPAGE } from "../constants";
 import { StyledLink } from "../components/StyledLink";
@@ -11,6 +12,64 @@ import { TerminalOutput } from "react-terminal-ui";
 import Terminal from "../components/Terminal";
 
 const Home = () => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand("copy");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (fallbackErr) {
+        console.error("Failed to copy text: ", fallbackErr);
+      }
+      document.body.removeChild(textArea);
+    }
+  };
+
+  // Copy icon SVG
+  const CopyIcon = () => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+  );
+
+  // Check icon SVG
+  const CheckIcon = () => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="20,6 9,17 4,12"></polyline>
+    </svg>
+  );
+
   return (
     <>
       <Header />
@@ -89,33 +148,64 @@ const Home = () => {
               style={{
                 color: "white",
                 opacity: "0.3",
-                // marginBottom: "1.5rem",
                 fontSize: "20px",
               }}
             >
               Install with
             </h3>
-            <div style={{ marginBottom: "2rem" }}>
+            <div style={{ marginBottom: "2rem", position: "relative" }}>
               <code
                 style={{
                   background: "#1a1a1a",
                   padding: "8px 12px",
+                  paddingRight: "40px", // Make room for the icon
                   borderRadius: "4px",
                   border: "1px solid #333",
                   display: "block",
-                  marginBottom: "1rem",
                   fontFamily: "monospace",
+                  position: "relative",
                 }}
               >
                 npm install -g memix
               </code>
+              <button
+                onClick={() => copyToClipboard("npm install -g memix")}
+                style={{
+                  position: "absolute",
+                  right: "8px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  background: "transparent",
+                  border: "none",
+                  color: copied ? "#28a745" : "#666",
+                  cursor: "pointer",
+                  padding: "4px",
+                  borderRadius: "3px",
+                  transition: "color 0.2s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                onMouseEnter={(e) => {
+                  if (!copied) {
+                    e.currentTarget.style.color = "#f05033";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!copied) {
+                    e.currentTarget.style.color = "#666";
+                  }
+                }}
+                title={copied ? "Copied!" : "Copy to clipboard"}
+              >
+                {copied ? <CheckIcon /> : <CopyIcon />}
+              </button>
             </div>
 
             <h3
               style={{
                 color: "white",
                 opacity: "0.3",
-                // marginBottom: "1.5rem",
                 fontSize: "20px",
               }}
             >
@@ -155,7 +245,6 @@ const Home = () => {
             <div
               style={{
                 background: "#1a1a1a",
-                // border: "1px solid  #f05033",
                 borderRadius: "6px",
                 padding: "1rem",
                 marginBottom: "1rem",
