@@ -32,10 +32,11 @@ const ASCIIBackground = styled.pre`
   font-size: 0.7rem;
   font-weight: bolder;
   color: white;
-  opacity: 0.25;
+  opacity: 0.4;
   margin: 0;
   z-index: 0;
   pointer-events: none;
+  tetxt-align: center;
   user-select: none;
 `;
 
@@ -141,22 +142,22 @@ DDDDDDDDDDDDD          aaaaaaaaaa  aaaa       y:::::y                     tttttt
                                                                                                                                                                                                   
                                                                                                                                                                                                   
                                                                                                                                                                                                   
-        CCCCCCCCCCCCCLLLLLLLLLLL             IIIIIIIIII     TTTTTTTTTTTTTTTTTTTTTTT                                  lllllll                                                                      
-     CCC::::::::::::CL:::::::::L             I::::::::I     T:::::::::::::::::::::T                                  l:::::l                                                                      
-   CC:::::::::::::::CL:::::::::L             I::::::::I     T:::::::::::::::::::::T                                  l:::::l                                                                      
-  C:::::CCCCCCCC::::CLL:::::::LL             II::::::II     T:::::TT:::::::TT:::::T                                  l:::::l                                                                      
- C:::::C       CCCCCC  L:::::L                 I::::I       TTTTTT  T:::::T  TTTTTT   ooooooooooo      ooooooooooo    l::::l                                                                      
-C:::::C                L:::::L                 I::::I               T:::::T         oo:::::::::::oo  oo:::::::::::oo  l::::l                                                                      
-C:::::C                L:::::L                 I::::I               T:::::T        o:::::::::::::::oo:::::::::::::::o l::::l                                                                      
-C:::::C                L:::::L                 I::::I               T:::::T        o:::::ooooo:::::oo:::::ooooo:::::o l::::l                                                                      
-C:::::C                L:::::L                 I::::I               T:::::T        o::::o     o::::oo::::o     o::::o l::::l                                                                      
-C:::::C                L:::::L                 I::::I               T:::::T        o::::o     o::::oo::::o     o::::o l::::l                                                                      
-C:::::C                L:::::L                 I::::I               T:::::T        o::::o     o::::oo::::o     o::::o l::::l                                                                      
- C:::::C       CCCCCC  L:::::L         LLLLLL  I::::I               T:::::T        o::::o     o::::oo::::o     o::::o l::::l                                                                      
-  C:::::CCCCCCCC::::CLL:::::::LLLLLLLLL:::::LII::::::II           TT:::::::TT      o:::::ooooo:::::oo:::::ooooo:::::ol::::::l                                                                     
-   CC:::::::::::::::CL::::::::::::::::::::::LI::::::::I           T:::::::::T      o:::::::::::::::oo:::::::::::::::ol::::::l                                                                     
-     CCC::::::::::::CL::::::::::::::::::::::LI::::::::I           T:::::::::T       oo:::::::::::oo  oo:::::::::::oo l::::::l                                                                     
-        CCCCCCCCCCCCCLLLLLLLLLLLLLLLLLLLLLLLLIIIIIIIIII           TTTTTTTTTTT         ooooooooooo      ooooooooooo   llllllll`}
+                                 CCCCCCCCCCCCCLLLLLLLLLLL             IIIIIIIIII     TTTTTTTTTTTTTTTTTTTTTTT                                  lllllll                                             
+                              CCC::::::::::::CL:::::::::L             I::::::::I     T:::::::::::::::::::::T                                  l:::::l                                             
+                            CC:::::::::::::::CL:::::::::L             I::::::::I     T:::::::::::::::::::::T                                  l:::::l                                             
+                           C:::::CCCCCCCC::::CLL:::::::LL             II::::::II     T:::::TT:::::::TT:::::T                                  l:::::l                                             
+                          C:::::C       CCCCCC  L:::::L                 I::::I       TTTTTT  T:::::T  TTTTTT   ooooooooooo      ooooooooooo    l::::l                                             
+                         C:::::C                L:::::L                 I::::I               T:::::T         oo:::::::::::oo  oo:::::::::::oo  l::::l                                             
+                         C:::::C                L:::::L                 I::::I               T:::::T        o:::::::::::::::oo:::::::::::::::o l::::l                                             
+                         C:::::C                L:::::L                 I::::I               T:::::T        o:::::ooooo:::::oo:::::ooooo:::::o l::::l                                             
+                         C:::::C                L:::::L                 I::::I               T:::::T        o::::o     o::::oo::::o     o::::o l::::l                                             
+                         C:::::C                L:::::L                 I::::I               T:::::T        o::::o     o::::oo::::o     o::::o l::::l                                             
+                         C:::::C                L:::::L                 I::::I               T:::::T        o::::o     o::::oo::::o     o::::o l::::l                                             
+                          C:::::C       CCCCCC  L:::::L         LLLLLL  I::::I               T:::::T        o::::o     o::::oo::::o     o::::o l::::l                                             
+                           C:::::CCCCCCCC::::CLL:::::::LLLLLLLLL:::::LII::::::II           TT:::::::TT      o:::::ooooo:::::oo:::::ooooo:::::ol::::::l                                            
+                            CC:::::::::::::::CL::::::::::::::::::::::LI::::::::I           T:::::::::T      o:::::::::::::::oo:::::::::::::::ol::::::l                                            
+                              CCC::::::::::::CL::::::::::::::::::::::LI::::::::I           T:::::::::T       oo:::::::::::oo  oo:::::::::::oo l::::::l                                            
+                                 CCCCCCCCCCCCCLLLLLLLLLLLLLLLLLLLLLLLLIIIIIIIIII           TTTTTTTTTTT         ooooooooooo      ooooooooooo   llllllll`}
       </ASCIIBackground>
       <FlippableCard
         key="unique"
