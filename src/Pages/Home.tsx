@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import ProjectList from "../ProjectList/ProjectList";
-import { PROJECTS, PROJECTS_SHOWN_ON_HOMEPAGE } from "../constants";
 import { StyledLink } from "../components/StyledLink";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Marquee from "../components/Marquee";
 import ScrollText from "../components/ScrollText";
 import Section from "../components/Section";
-import { TerminalOutput } from "react-terminal-ui";
 import Terminal from "../components/Terminal";
 
 const Home = () => {
