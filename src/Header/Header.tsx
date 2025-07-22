@@ -147,7 +147,7 @@ const Header = () => {
       >
         {possibleStageBackgrounds[currentStageIndex].stage}
       </StyledStage> */}
-      <div>
+      {/* <div>
         <div
           style={{
             position: "absolute",
@@ -190,7 +190,7 @@ const Header = () => {
             ↻
           </button>
         </div>
-      </div>
+      </div> */}
     </StyledHeaderWrapper>
   );
 };

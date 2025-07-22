@@ -33,12 +33,12 @@ const StyledDetail = styled.p`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  color: white;
+  color: rgb(255, 231, 227);
 `;
 
 const TerminalCommand = styled.span`
   font-family: "Fira Mono", "Consolas", "Menlo", monospace;
-  color: #f05033;
+  color: white;
   font-size: 1.15em;
   font-weight: 600;
   letter-spacing: 0.01em;

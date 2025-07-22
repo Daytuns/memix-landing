@@ -7,8 +7,8 @@ import WavyText from "../components/WavyText";
 
 const StyledNavbar = styled.div`
   border: 5px solid #f05033;
-  outline: 2px solid white;
-  background: white;
+  outline: 2px solid #121212;
+  background: #121212;
   height: 50px;
   width: min-contents;
   margin: auto;
@@ -26,7 +26,7 @@ const StyledNavbar = styled.div`
 `;
 const Background = styled(motion.div)`
   position: absolute;
-  background-color: #efe2f5; // Or any color you prefer
+  background-color: rgba(240, 79, 51, 0.25); // Or any color you prefer
   border-radius: 50px;
   z-index: -1; // Higher than other elements
   pointer-events: none; // Allow clicks to pass through
@@ -35,14 +35,14 @@ const Background = styled(motion.div)`
 
 const NavbarItem = styled.b`
   cursor: pointer;
-  color: black;
+  color: white;
   user-select: none;
   text-decoration: none;
   font-style: bold;
   font-weight: 600;
 
   &:hover {
-    color: black;
+    color: white;
   }
 `;
 
@@ -51,8 +51,8 @@ const navBarRoutes = [
     name: "Home",
     path: "/",
   },
-  { name: "Team", path: "/team" },
   { name: "About", path: "/about" },
+  { name: "npm", path: "/team" },
 ];
 
 const HoverBackground = ({ hoveredItem }: { hoveredItem: HTMLDivElement }) => {
@@ -133,7 +133,7 @@ const Navbar = () => {
         onMouseEnter={(e: any) => setHoveredItem(e.currentTarget)}
         onMouseLeave={() => setHoveredItemToDefault()}
       >
-        <WavyText text="Discord" />
+        <WavyText text="Github" />
       </NavbarItem>
     </StyledNavbar>
   );

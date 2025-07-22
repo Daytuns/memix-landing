@@ -3,18 +3,18 @@ import styled, { keyframes } from "styled-components";
 
 const wavyAnimation = keyframes`
     40% {
-      color: black;
+      color: white;
       opacity: 1;
       transform: translateY(0px) scale(1);
     }
     50% {
       color: #F05033;
-      opacity: 0.7;
+      opacity: 1;
       transform: translateY(-3px) scale(0.9);
     }
     
     60% {
-      color: black;
+      color: white;
       opacity: 1;
       transform: translateY(0px) scale(1);
     }
