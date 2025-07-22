@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { styled } from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
-import { DISCORD_INVITE_LINK } from "../constants";
 import WavyText from "../components/WavyText";
 
 const StyledNavbar = styled.div`

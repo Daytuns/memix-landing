@@ -1,15 +1,14 @@
-import { Link } from 'react-router-dom'
-import { styled } from 'styled-components'
-import { DISCORD_INVITE_LINK } from '../constants'
-import SketchLines from '../components/SketchLines'
-import { StyledLink } from '../components/StyledLink'
+// import { Link } from "react-router-dom";
+import { styled } from "styled-components";
+import SketchLines from "../components/SketchLines";
+import { StyledLink } from "../components/StyledLink";
 
 const StyledLinksWrapper = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
   width: 100%;
-`
+`;
 
 const Links = () => {
   return (
@@ -17,20 +16,18 @@ const Links = () => {
       <StyledLinksWrapper>
         <StyledLink
           as="a"
-          href={DISCORD_INVITE_LINK}
+          href="/setup"
           target="_blank"
-          rel="noopener noreferrer">
-          Discord
+          rel="noopener noreferrer"
+        >
+          /setup
         </StyledLink>
-        <StyledLink as={Link} to="/projects">
-          /projects
-        </StyledLink>
-        {/* <StyledLink as={Link} to="/team">
-          /team
+        {/* <StyledLink as={Link} to="/setup">
+          /setup
         </StyledLink> */}
       </StyledLinksWrapper>
     </SketchLines>
-  )
-}
+  );
+};
 
-export default Links
+export default Links;

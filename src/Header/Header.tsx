@@ -1,22 +1,23 @@
 import styled from "styled-components";
 import FlippableCard from "../components/FlippableCard";
 import NextMeeting from "../NextMeetup/NextMeetup";
-import { Stage } from "@pixi/react";
-import { ACCENT_COLOR } from "../constants";
-import { useEffect, useRef, useState } from "react";
+// import { Stage } from "@pixi/react";
+// import { ACCENT_COLOR } from "../constants";
+import { useRef } from "react";
+// import { useEffect, useRef, useState } from "react";
 
-const StyledStage = styled(Stage)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  user-select: none;
+// const StyledStage = styled(Stage)`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   user-select: none;
 
-  @media (max-width: 768px) {
-    pointer-events: none;
-  }
-`;
+//   @media (max-width: 768px) {
+//     pointer-events: none;
+//   }
+// `;
 
 const ASCIIBackground = styled.pre`
   position: absolute;
