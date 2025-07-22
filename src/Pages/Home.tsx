@@ -174,7 +174,7 @@ const Home = () => {
                   transform: "translateY(-50%)",
                   background: "transparent",
                   border: "none",
-                  color: copied ? "#28a745" : "#666",
+                  color: copied ? "#f05033" : "#666",
                   cursor: "pointer",
                   padding: "4px",
                   borderRadius: "3px",

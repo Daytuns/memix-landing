@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Logo from "../components/Logo";
 import { StyledLink } from "../components/StyledLink";
 
 const Background = styled.div`

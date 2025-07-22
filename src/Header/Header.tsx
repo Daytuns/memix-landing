@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import FlippableCard from "../components/FlippableCard";
-import Logo from "../components/Logo";
 import NextMeeting from "../NextMeetup/NextMeetup";
 import { Stage } from "@pixi/react";
 import Gravity from "./Gravity";
@@ -61,56 +60,7 @@ const StyledHeaderWrapper = styled.div`
 `;
 
 const Header = () => {
-  const [stageWidth, setStageWidth] = useState<number>(window.innerWidth);
-  const [stageHeight, setStageHeight] = useState<number>(window.innerHeight);
-
   const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (ref.current) {
-      setStageWidth(ref.current.clientWidth);
-      setStageHeight(ref.current.clientHeight);
-    }
-  }, [ref]);
-
-  const possibleStageBackgrounds = [
-    {
-      stage: <Gravity />,
-      creator: "Tomas Maillo",
-      url: "https://tomasmaillo.com",
-    },
-    {
-      stage: <Boids />,
-      creator: "Tomas Maillo",
-      url: "https://tomasmaillo.com",
-    },
-    {
-      stage: <BrickBreaker />,
-      creator: "Ali Abdelaal",
-      url: "https://3li.ae",
-    },
-    {
-      stage: <DVDBounce />,
-      creator: "Tomas Maillo",
-      url: "https://tomasmaillo.com",
-    },
-  ];
-
-  const [currentStageIndex, setCurrentStageIndex] = useState(
-    Math.floor(Math.random() * possibleStageBackgrounds.length)
-  );
-
-  const nextStage = () => {
-    setCurrentStageIndex(
-      (prevIndex) => (prevIndex + 1) % possibleStageBackgrounds.length
-    );
-  };
-
-  useEffect(() => {
-    setCurrentStageIndex(
-      Math.floor(Math.random() * possibleStageBackgrounds.length)
-    );
-  }, []);
 
   return (
     <StyledHeaderWrapper ref={ref}>
