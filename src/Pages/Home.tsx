@@ -30,7 +30,7 @@ const Home = () => {
           content={[
             "This is just the beginning,",
             "memix is my personal toolbox in progress.",
-            "I plan to keep building it out with simple, effective CLI tools for everyday dev annoyances",
+            "I plan to keep building it out with simple, effective CLI tools for everyday dev annoyances.",
           ]}
         />
       </Section>
@@ -155,7 +155,7 @@ const Home = () => {
             <div
               style={{
                 background: "#1a1a1a",
-                border: "1px solid  #f05033",
+                // border: "1px solid  #f05033",
                 borderRadius: "6px",
                 padding: "1rem",
                 marginBottom: "1rem",
@@ -166,7 +166,7 @@ const Home = () => {
                 <br />
                 You'll need a Groq API key to use memix.{" "}
                 <StyledLink as={Link} to="/setup" style={{ color: " #f05033" }}>
-                  View setup guide →
+                  View setup guide
                 </StyledLink>
               </p>
             </div>

@@ -13,7 +13,7 @@ export const StyledLink = styled.div`
   background-color: transparent;
 
   &:hover {
-    border: 1px solid gray;
+    text-decoration: underline #f05033;
     color: black;
   }
 `;

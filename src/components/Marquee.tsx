@@ -13,11 +13,10 @@ const Track = styled(motion.a)`
   white-space: nowrap;
   height: 50px;
   position: relative;
-  transition: height 0.2s, opacity 0.2s;
+  transition: background-color 0.2s ease;
   background-color: ${ACCENT_COLOR};
 
   width: 500vw;
-
   z-index: 5;
   padding: 0.5rem 0;
   cursor: pointer;
@@ -27,33 +26,26 @@ const Track = styled(motion.a)`
   justify-content: space-around;
   gap: 4rem;
 
-  &:hover::after {
-    top: 0%;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  &:hover {
     background-color: white;
-    z-index: 10;
-    transition: top 0.2s ease, opacity 0.2s ease;
-    mix-blend-mode: difference;
+
+    h1 {
+      color: ${ACCENT_COLOR};
+    }
+
+    svg path {
+      fill: ${ACCENT_COLOR};
+    }
   }
 `;
 
 const Title = styled.h1`
   color: white;
-  margin: 0px 0;
-  font-size: 4rem;
-
-  font-family: "Helvetica Neue";
-  font-style: normal;
-  font-weight: 500;
+  margin: 0;
   font-size: 32px;
+  font-family: "Helvetica Neue";
+  font-weight: 500;
+  transition: color 0.2s ease;
 `;
 
 interface Banner {
