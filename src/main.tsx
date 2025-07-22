@@ -20,11 +20,11 @@ ReactDOM.render(
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/team" element={<Team />} />
+        {/* <Route path="/team" element={<Team />} /> */}
         <Route path="/setup" element={<Setup />} />
-        <Route path="/projects" element={<Projects />} />
+        {/* <Route path="/projects" element={<Projects />} />
         <Route path="/components" element={<Components />} />
-        <Route path="/present" element={<Present />} /> // Add this line
+        <Route path="/present" element={<Present />} />  */}
       </Routes>
     </Router>
   </React.StrictMode>,
