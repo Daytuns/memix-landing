@@ -14,6 +14,9 @@ const StyledTitle = styled.h2`
   font-weight: 500;
   margin: 0;
   user-select: none;
+  @media (max-width: 600px) {
+    font-size: 1.15rem;
+  }
 `;
 
 const StyledDetail = styled.p`
